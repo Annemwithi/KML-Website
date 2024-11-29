@@ -1,0 +1,354 @@
+<?php
+session_start();
+include 'connect.php';
+if (isset($_POST['submit'])) {
+    $email = $_POST['email'];
+    $sql = "INSERT INTO subscribers (email)
+     VALUES (email)";
+    $result = mysqli_query($conn, $sql);
+    if ($result) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . mysqli_error($conn);
+    }
+
+    mysqli_close($conn);
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: whitesmoke;
+        }
+        
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .section img {
+            width: 50%;
+            height: auto;
+        }
+        
+        .section .text {
+            width: 50%;
+            padding: 10px;
+        }
+        
+        h1,
+        h2 {
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        footer {
+            color: green;
+            padding: 20px;
+            background-color: black;
+        }
+        
+        .footer-content {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-content form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: green;
+        }
+        
+        .footer-content input {
+            padding: 10px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        
+        .footer-content button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: darkorange;
+            color: green;
+            cursor: pointer;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            color: green;
+        }
+        
+        .footer-links div {
+            margin-bottom: 20px;
+        }
+        
+        .footer-links h5 {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links ul li a {
+            text-decoration: none;
+            color: olive;
+        }
+        
+        footer p {
+            text-align: center;
+            margin: 0;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f1f1f1;
+            padding: 10px 20px;
+        }
+        
+        .header .imgcontainer {
+            margin-right: 10px;
+        }
+        
+        .header img {
+            width: 100px;
+            height: auto;
+            object-fit: contain;
+            /* Optional: Adjust positioning if needed */
+        }
+        
+        .header a {
+            color: green;
+            text-align: center;
+            padding: 5px;
+            text-decoration: none;
+            font-size: 12px;
+            line-height: 25px;
+            border-radius: 4px;
+            margin-right: 5px;
+        }
+        
+        .header a.logo {
+            font-size: 25px;
+            font-weight: bolder;
+        }
+        
+        .header a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        
+        .header a.active {
+            background-color: green;
+            color: white;
+        }
+        
+        @media screen and (max-width: 500px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .header a {
+                display: block;
+                text-align: left;
+                margin: 5px 0;
+            }
+        }
+        
+        .instagram {
+            padding: 50px;
+            text-align: center;
+        }
+        
+        .instagram {
+            background-color: green;
+        }
+        
+        .insta-images {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .insta-images img {
+            margin: 10px;
+            width: 100px;
+            height: auto;
+        }
+        
+        .google-map {
+            padding-bottom: 50%;
+            position: relative;
+        }
+        
+        .google-map iframe {
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            position: absolute;
+        }
+        
+        body {
+            margin: 0;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+    </style>
+</head>
+<div class="header">
+    <div class="imgcontainer">
+        <img src="corn8.jpeg" alt="Logo">
+    </div>
+    <div class="header-right">
+        <a href="index.html">HOME</a>
+        <a href="brands.html">OUR BRANDS</a>
+        <a href="gallery.html">PRODUCTS GALLERY</a>
+        <a href="contact2.html">CONTACTS</a>
+        <a class="active" href="about.html">ABOUT</a>
+        <a href="faq.html">FAQ</a>
+    </div>
+</div>
+<div class="topnav" style="background-color:black; padding: 12px 14px; color: green;text-align:center;">
+    Get To Know Us
+</div>
+<div class="section">
+    <center><h1 style="font-size:45px; color:green;">HELLO!<br>GET TO KNOW US & WHERE WE'RE HEADED</h1></center>
+</div>
+<div class="section">
+    <div class="text">
+        <h2 style="color:green;">Our History</h2>
+        <p>Kilimambogo Millers Limited was founded in 2013 in Thika, Kenya, and has quickly established itself as a reputable milling company in the region.<br> The company focuses on producing high-quality flour products, with its main brand being Oryx Premium Maize Flour, widely recognized for its premium quality.<br> Alongside this, the company also offers Tahidi Grade 1 Sifted Maize Meal, catering to the diverse needs of Kenyan households.<br>
+
+In addition to flour production, Kilimambogo Millers Limited has expanded into rice packaging, offering Oryx Mwea Pishori Rice and Fountain Long grain Rice, further contributing to its commitment to delivering staple food products.<br> Over the years, the company has grown in both size and reputation, playing a key role in providing nutritious and affordable food products to communities across Kenya.
+        </p>
+    </div>
+    <img src="photo6.jpeg" alt="Our Vision">
+</div>
+
+<div class="section">
+    <img src="photo3.jpeg" alt="Our Approach">
+    <div class="text">
+        <h2 style="color:green;">Our Core Values</h2>
+        <p>
+Quality Assurance: We are committed to producing high-quality, nutritious food products that meet the needs and expectations of our customers.<br><br>
+
+Integrity: Honesty and transparency guide all our business operations, ensuring trust and loyalty from our customers, partners, and employees.<br><br>
+
+Customer-Centricity: We prioritize the needs of our customers, striving to provide products that enhance their daily lives and well-being.<br><br>
+
+Innovation: We continuously seek innovative ways to improve our processes, products, and services to stay ahead in the milling industry.<br><br>
+
+Sustainability: We are dedicated to responsible and sustainable practices, ensuring that we positively impact the environment and the communities we serve.<br><br>
+
+Teamwork: Our success is driven by collaboration and mutual respect among our employees, suppliers, and stakeholders. Together, we achieve excellence.</p>
+    </div>
+</div>
+
+<div class="section">
+    <div class="text">
+    <h2 style="color:green;">Our Vision</h2>
+    <p>To be a leading maize flour brand recognized for our dedication to quality,sustainability,community empowerment and ultimately contributing to healthier and prosperous future for all.</p>
+    <h2 style="color:green;">Our Mission</h2>
+        <p>To produce high-quality maize flour that meets the nutritional nneds of our customers while promoting sustainable farming practices and supporting local farmers.We are commited to ensuring food safety,enhancing food security and delivering exceptional
+            value through innovation and excellence.</p>
+    <h2 style="color:green;">Our Slogan</h2>
+        <p>Quality you can taste!</p>
+    </div>
+    <img src="photo2.jpeg" alt="Our Process">
+</div>
+</div>
+<section class="instagram">
+    <h2 style="color:white;">Follow us on the gram! @oryx_premium_ke
+    </h2>
+    <div class="insta-images">
+    <img src="photo1.jpeg" alt="Instagram Image">
+            <img src="photo2.jpeg" alt="Instagram Image">
+            <img src="photo8.jpeg" alt="Instagram Image">
+            <img src="photo7.jpeg" alt="Instagram Image">
+    </div>
+</section>
+<footer>
+    <div class="footer-content">
+        <h4>Sign Up </h4>
+        <form>
+            <input type="email" placeholder="Enter your email">
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
+    <div class="footer-links">
+        <div>
+            <h5>Quick Links</h5>
+            <ul>
+                <li><a href="index.php">Home</a></li>
+                <li><a href="about.php">About Us</a></li>
+                <li><a href="brands.php">Brands</a></li>
+                <li><a href="gallery.php">Gallery</a></li>
+                <li><a href="contact2.php">Contact Us</a></li>
+            </ul>
+        </div>
+        <div>
+            <h5>Service</h5>
+            <ul>
+                <li><a href="contact2.php">Support</a></li>
+                <li><a href="faq.php">FAQ</a></li>
+
+            </ul>
+        </div>
+        <div>
+            <h5>Social Media</h5>
+            <ul>
+                <li><a href="https://www.facebook.com/OryxMaizeMeal">FaceBook</a></li>
+                <li><a href="https://www.instagram.com/oryx_premium_ke?igsh=MXM5ZWJic21jbG5yaQ==">Instagram</a></li>
+                <li><a href="https://x.com/OryxPremiumKe?t=m0plcJ6vImMPA4u5Ael3Sg&s=09">Twitter</a></li>
+            </ul>
+        </div>
+        <div>
+            <h5 style>Reach Out To Us</h5>
+            <ul>
+                <li><a href="contact2.php">Telephone</a></li>
+                <li><a href="contact2.php">Email</a></li>
+
+            </ul>
+        </div>
+    </div>
+    <p>&copy; 2024-Kilimambogo Millers Limited | All Right Reserved</p>
+</footer>
+<div class="google-map ">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3989.143395459185!2d37.0657633!3d-1.0538891!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f4f8107ae9189%3A0x40d0a33ddb823ffb!2sKimambogo%20Millers%20ltd%20offices!5e0!3m2!1sen!2ske!4v1721422619909!5m2!1sen!2ske "
+        width="600 " height="450 " style="border:0; " allowfullscreen=" " loading="lazy " referrerpolicy="no-referrer-when-downgrade "></iframe>
+</div>
+</body>
+
+</html>
+</body>
+
+</html>

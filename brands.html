@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maize Flour Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #333;
+            background-color: whitesmoke;
+        }
+        
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f1f1f1;
+            padding: 10px 20px;
+        }
+        
+        .header .imgcontainer {
+            margin-right: 10px;
+        }
+        
+        .header img {
+            width: 100px;
+            height: auto;
+            object-fit: contain;
+            /* Optional: Adjust positioning if needed */
+        }
+        
+        .header a {
+            color: green;
+            text-align: center;
+            padding: 5px;
+            text-decoration: none;
+            font-size: 12px;
+            line-height: 25px;
+            border-radius: 4px;
+            margin-right: 5px;
+        }
+        
+        .header a.logo {
+            font-size: 25px;
+            font-weight: bolder;
+        }
+        
+        .header a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        
+        .header a.active {
+            background-color: green;
+            color: white;
+        }
+        
+        @media screen and (max-width: 500px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .header a {
+                display: block;
+                text-align: left;
+                margin: 5px 0;
+            }
+        }
+        
+        h1,
+        h2 {
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .footer {
+            color: green;
+            padding: 20px;
+            background-color: black;
+        }
+        
+        .footer-content {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .footer-content form {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: green;
+        }
+        
+        .footer-content input {
+            padding: 10px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        
+        .footer-content button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: darkorange;
+            color: green;
+            cursor: pointer;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            color: green;
+        }
+        
+        .footer-links div {
+            margin-bottom: 20px;
+        }
+        
+        .footer-links h5 {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links ul li a {
+            text-decoration: none;
+            color: olive;
+        }
+        
+        .hero {
+            background: url('hero-image.jpg') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 100px 20px;
+        }
+        
+        .hero-text {
+            background-color: rgba(0, 0, 0, 0.5);
+            display: inline-block;
+            padding: 20px;
+        }
+        
+        .hero-text h2 {
+            margin: 0;
+        }
+        
+        .hero-text .shop-now {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #007BFF;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        
+        .testimonials,
+        .cta-buttons,
+        footer {
+            padding: 20px;
+            text-align: center;
+            background-color: #fff;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonials h2,
+        .cta-buttons h2,
+        footer p {
+            margin: 0;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .card {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .card img {
+            width: 100%;
+            height: auto;
+        }
+        
+        .card h3 {
+            font-size: 1.2em;
+            margin: 15px 0;
+        }
+        
+        .card p {
+            padding: 0 20px;
+            color: #666;
+        }
+        
+        .testimonials blockquote {
+            font-style: italic;
+            margin: 20px 0;
+            color: #666;
+        }
+        
+        .cta-buttons div {
+            display: inline-block;
+            margin: 10px;
+        }
+        
+        body {
+            margin: 0;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        
+        .image-row {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+        }
+        
+        .column {
+            flex: 1;
+            padding: 10px;
+        }
+        
+        .column img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="imgcontainer">
+            <img src="corn8.jpeg" alt="Logo">
+        </div>
+        <div>
+            <a href="index.html">HOME</a>
+            <a class="active" href="brands.html">OUR BRANDS</a>
+            <a href="gallery.html">PRODUCT GALLERY</a>
+            <a href="about.html">ABOUT</a>
+            <a href="contact2.html">CONTACTS</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+    </div>
+    <div class="topnav" style="background-color:black;padding: 12px 14px;color:green;">
+        <center>What We Produce</center>
+    </div>
+
+    <section class="hero">
+        <h1 style="font-size:45px; color:green;">OUR BEST SELLING PRODUCTS</h1>
+        <p style="color:green;">Explore Our Maize Flour Creations:From Farm to Table</p>
+    </section>
+    <section class="new-arrivals">
+        <h2 style="color:green;">OUR BRANDS</h2>
+        <div class="gallery">
+            <div class="card">
+                <img src="orange6.jpeg" alt="Maize Flour Product 1">
+                <h4 style="color:green;">ORYX Premium White Maize Flour</h4>
+                <h4 style="color:green;">Available Quantities </h4>
+<p style="color:green;">In Bales:1Kg & 2Kg Bales </p>
+<p style="color:green;">In Bags:5Kg, 10Kg, 24Kg, 30Kg, 45Kg, 50Kg & 90Kg Bags</p>
+            </div>
+            <div class="card">
+                <img src="orange4.jpeg" alt="Maize Flour Product 2">
+                <h4 style="color:green;">TAHIDI Grade 1 maize meal</h4>
+                <h4 style="color:green;">Available Quantities </h4>
+<p style="color:green;">In Bales:1Kg & 2Kg Bales </p>
+<p style="color:green;">In Bags:24Kg, 50Kg & 90Kg Bags</p>
+            </div>
+            <div class="card">
+                <img src="orange2.jpeg" alt="Maize Flour Product 3">
+                <h4 style="color:green;">Fountain Long Grain Rice </h4>
+                <h4 style="color:green;">Available Quantities </h4>
+<p style="color:green;">2Kg Bales </p>
+<p style="color:green;">1Kg Bales </p>
+            </div>
+            <div class="card">
+                <img src="orange3.jpeg" alt="Maize Flour Product 4">
+                <h4 style="color:green;">ORYX Pure Mwea Pishori</h4>
+                <h4 style="color:green;">Available Quantities </h4>
+<p style="color:green;">2Kg Bales </p>
+<p style="color:green;">1Kg Bales </p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 style="color:green">BY PRODUCTS</h2>
+        <div class="gallery">
+            <div class="card">
+                <img src="by product2.jpeg" alt="Maize Flour Product 4">
+                <h4 style="color:green;">Maize Germ</h4>
+            </div>
+            <div class="card">
+                <img src="by product1.jpeg" alt="Maize Flour Product 4 ">
+                <h4 style="color:green; ">Baridi</h4>
+            </div>
+        </div>
+    </section>
+    <h2 style="color:green; text-align:center;">MAIN OUTLETS</h2>
+    <div class="image-row">
+        <div class="column">
+            <img src="outlet1.jpg" alt="">
+        </div>
+        <div class="column">
+            <img src="outlet 2.jpg" alt="">
+        </div>
+    </div>
+    <section class="testimonials ">
+        <h2 style="color:green ">Testimonials</h2>
+        <p>Our customers love our maize flour. See what they have to say:</p>
+        <blockquote>"My family 's favourite maize flour.White, soft and delicious" - Terry Bulla.</blockquote>
+        <blockquote>"The sweetest brand I have come across...Nice work" - Mwangi Kamuri Jnr.</blockquote>
+    </section>
+    <footer style="background-color:black;">
+        <div class="footer-content">
+            <h4 style="color:green">Sign Up </h4>
+            <form>
+                <input type="email" placeholder="Enter your email">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+        <div class="footer-links">
+            <div>
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="about.php">About Us</a></li>
+                    <li><a href="brands.php">Brands</a></li>
+                    <li><a href="gallery.php">Gallery</a></li>
+                    <li><a href="contact2.php">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>Service</h5>
+                <ul>
+                    <li><a href="contact2.php">Support</a></li>
+                    <li><a href="faq.php">FAQ</a></li>
+
+                </ul>
+            </div>
+            <div>
+                <h5>Social Media</h5>
+                <ul>
+                    <li><a href="https://www.facebook.com/OryxMaizeMeal">FaceBook</a></li>
+                    <li><a href="https://www.instagram.com/oryx_premium_ke?igsh=MXM5ZWJic21jbG5yaQ==">Instagram</a></li>
+                    <li><a href="https://x.com/OryxPremiumKe?t=m0plcJ6vImMPA4u5Ael3Sg&s=09">Twitter</a></li>
+
+                </ul>
+            </div>
+            <div>
+                <h5 style>Reach Out To Us</h5>
+                <ul>
+                    <li><a href="contact2.php">Telephone</a></li>
+                    <li><a href="contact2.php">Email</a></li>
+
+                </ul>
+            </div>
+        </div>
+        <p style="color:green;">&copy; 2024-Kilimambogo Millers Limited | All Right Reserved</p>
+    </footer>
+</body>
+
+</html>

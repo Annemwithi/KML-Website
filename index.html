@@ -1,0 +1,249 @@
+<?php
+session_start();
+include 'connect.php';
+
+if (isset($_POST['submit'])) {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $subject = $_POST['subject'];
+    $message = $_POST['message'];
+
+    $sql = "INSERT INTO contact (name, email, subject, message) VALUES (?, ?, ?, ?)";
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $subject, $message);
+    $result = mysqli_stmt_execute($stmt);
+
+    if ($result) {
+        echo '<script>alert("Your details have been recorded");</script>';
+    } else {
+        echo "Error: " . mysqli_error($conn);
+    }
+    mysqli_close($conn);
+}
+
+?>
+
+    
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kml</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="imgcontainer">
+            <img src="corn8.jpeg" alt="Logo">
+        </div>
+        <div class="header-right">
+            <a class="active" href="index.php">HOME</a>
+            <a href="brands.html">OUR BRANDS</a>
+            <a href="gallery.html">PRODUCTS GALLERY</a>
+            <a href="contact2.html">CONTACTS</a>
+            <a href="about.html">ABOUT</a>
+            <a href="faq.html">FAQ</a>
+        </div>
+    </div>
+    <div class="slider">
+        <div class="slides">
+        <div class="slide">
+        <img src="home4.jpeg" alt="Image 2">
+            </div>
+            <div class="slide">
+                <img src="home5.jpeg" alt="Image 2">
+            </div>
+            <div class="slide">
+                <img src="home6.jpeg" alt="Image 3">
+            </div>
+        </div>
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+    </div>
+    <div class="navigation-dots">
+        <span class="dot" data-index="0"></span>
+        <span class="dot" data-index="1"></span>
+        <span class="dot" data-index="2"></span>
+    </div>
+
+    <script src="script.js"></script>
+    <section class="hero">
+        <h1 style="font-size:45px; color:green;">OUR BEST SELLING PRODUCTS</h1>
+        <p style="color:green;">Explore Our Maize Flour Creations:From Farm to Table</p>
+    </section>
+    <section class="new-arrivals">
+        <h2 style="color:green;">OUR BRANDS</h2>
+        <div class="gallery">
+            <div class="card">
+                <img src="orange6.jpeg" alt="Maize Flour Product 1">
+                <h4 style="color:green;">ORYX Premium White Maize Flour</h4>
+                <h4 style="color:green;">Available Quantities </h4>
+<p style="color:green;">In Bales:1Kg & 2Kg Bales </p>
+<p style="color:green;">In Bags:5Kg, 10Kg, 24Kg, 30Kg, 45Kg, 50Kg & 90Kg Bags</p>
+            </div>
+            <div class="card">
+                <img src="orange4.jpeg" alt="Maize Flour Product 2">
+                <h4 style="color:green;">TAHIDI Grade 1 maize meal</h4>
+                <h4 style="color:green;">Available Quantities </h4>
+<p style="color:green;">In Bales:1Kg & 2Kg Bales </p>
+<p style="color:green;">In Bags:24Kg, 50Kg & 90Kg Bags</p>
+            </div>
+            <div class="card">
+                <img src="orange2.jpeg" alt="Maize Flour Product 3">
+                <h4 style="color:green;">Fountain Rice Basmati</h4>
+<h4 style="color:green;">Available Quantities </h4>
+<p style="color:green;">2Kg Bales </p>
+<p style="color:green;">1Kg Bales </p>
+            </div>
+            <div class="card">
+                <img src="orange3.jpeg" alt="Maize Flour Product 4">
+                <h4 style="color:green;">ORYX Pure Mwea Pishori</h4>
+                <h4 style="color:green;">Available Quantities </h4>
+                <p style="color:green;">2Kg Bales</p>
+                <p style="color:green;">1Kg Bales</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 style="color:green">BY PRODUCTS</h2>
+        <div class="gallery">
+            <div class="card">
+                <img src="by product1.jpeg" alt="Maize Flour Product 4">
+                <h4 style="color:green;">Maize Germ</h4>
+            </div>
+            <div class="card">
+                <img src="by product2.jpeg " alt="Maize Flour Product 4 ">
+                <h4 style="color:green; ">Baridi</h4>
+            </div>
+        </div>
+    </section>
+    <h2 style="color:green; text-align:center;">MAIN OUTLETS</h2>
+    <div class="image-row">
+        <div class="column">
+            <img src="outlet1.jpg" alt="">
+        </div>
+        <div class="column">
+            <img src="outlet 2.jpg" alt="">
+        </div>
+    </div>
+    <section class="testimonials ">
+        <h2 style="color:green ">Testimonials</h2>
+        <p>Our customers love our maize flour. See what they have to say:</p>
+        <blockquote>"My family 's favourite maize flour.White, soft and delicious" - Terry Bulla.</blockquote>
+        <blockquote>"The sweetest brand I have come across...Nice work" - Mwangi Kamuri Jnr.</blockquote>
+    </section>
+    <header>
+        <h1 style="font-size:40px; color:green;">GOT A QUESTION ABOUT OUR PRODUCTS?</h1>
+        <p style="color:green; text-align:center;">We'd love to hear from you!Whether you have a question about our products or just whant to provide feedback,feel free to reach out to us.</p>
+    </header>
+    <main>
+        <section class="contact">
+            <div class="image">
+                <img src="photo6.jpeg" alt="Contact Image">
+            </div>
+            <div class="form-container">
+                <h1 style="color:black">GET IN touch</h1>
+                <p style="color:green">For press inquiries email <a href="mailto:kilimambogomillers@gmail.com">kilimambogomillers@gmail.com</a>.</p>
+                <p style="color:green">For general inquiries please fill out the form below and someone will contact you within 24-48 hours.</p>
+                <form action="submit_form_url" method="POST">
+                    <label for="name">Name *</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" name="email" required>
+                    <label for="subject">Subject *</label>
+                    <input type="text" id="subject" name="subject" required>
+                    <label for="message">Message *</label>
+                    <textarea id="message" name="message" required></textarea>
+                    <button type="submit">SUBMIT</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <section>
+        <div class="row2">
+            <div class="column2" style="background-color:green;">
+                <center>
+                    <h2>Phone Number</h2>
+                </center>
+                <center>
+                    <p>+254790272858</p>
+                </center>
+                <center>
+                    <p>+254778556838</p>
+                </center>
+            </div>
+            <div class="column2" style="background-color:green;">
+                <center><b><h2>Office Address</h2></b></center>
+                <center>
+                    <p>P.O BOX 2898-</p>
+                </center>
+                <center>
+                    <p>-01000,THIKA</p>
+                </center>
+                <p></p>
+            </div>
+            <div class="column2" style="background-color:green;">
+                <center><b><h2>Email Address</h2></b></center>
+                <center>
+                    <p>kilimambogomillers@gmail.com</p>
+                </center>
+            </div>
+        </div>
+    </section>
+    <footer style="background-color:black;">
+        <div class="footer-content">
+            <h4 style="color:green">Sign Up </h4>
+            <form>
+                <input type="email" placeholder="Enter your email">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+        <div class="footer-links">
+            <div>
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="about.php">About Us</a></li>
+                    <li><a href="brands.php">Brands</a></li>
+                    <li><a href="gallery.php">Gallery</a></li>
+                    <li><a href="contact2.php">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5>Service</h5>
+                <ul>
+                    <li><a href="contact2.php">Support</a></li>
+                    <li><a href="faq.php">FAQ</a></li>
+
+                </ul>
+            </div>
+            <div>
+                <h5>Social Media</h5>
+                <ul>
+                    <li><a href="https://www.facebook.com/OryxMaizeMeal">FaceBook</a></li>
+                    <li><a href="https://www.instagram.com/oryx_premium_ke?igsh=MXM5ZWJic21jbG5yaQ==">Instagram</a></li>
+                    <li><a href="https://x.com/OryxPremiumKe?t=m0plcJ6vImMPA4u5Ael3Sg&s=09">Twitter</a></li>
+
+                </ul>
+            </div>
+            <div>
+                <h5 style>Reach Out To Us</h5>
+                <ul>
+                    <li><a href="contact2.php">Telephone</a></li>
+                    <li><a href="contact2.php">Email</a></li>
+
+                </ul>
+            </div>
+        </div>
+        <p style="color:green;">&copy; 2024-Kilimambogo Millers Limited | All Right Reserved</p>
+    </footer>
+</body>
+
+</html>
+</body>
+
+</html>
