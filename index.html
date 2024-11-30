@@ -1,29 +1,4 @@
-<?php
-session_start();
-include 'connect.php';
-
-if (isset($_POST['submit'])) {
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $subject = $_POST['subject'];
-    $message = $_POST['message'];
-
-    $sql = "INSERT INTO contact (name, email, subject, message) VALUES (?, ?, ?, ?)";
-    $stmt = mysqli_prepare($conn, $sql);
-    mysqli_stmt_bind_param($stmt, "ssss", $name, $email, $subject, $message);
-    $result = mysqli_stmt_execute($stmt);
-
-    if ($result) {
-        echo '<script>alert("Your details have been recorded");</script>';
-    } else {
-        echo "Error: " . mysqli_error($conn);
-    }
-    mysqli_close($conn);
-}
-
-?>
-
-    
+   
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,7 +15,7 @@ if (isset($_POST['submit'])) {
             <img src="corn8.jpeg" alt="Logo">
         </div>
         <div class="header-right">
-            <a class="active" href="index.php">HOME</a>
+            <a class="active" href="index.html">HOME</a>
             <a href="brands.html">OUR BRANDS</a>
             <a href="gallery.html">PRODUCTS GALLERY</a>
             <a href="contact2.html">CONTACTS</a>
