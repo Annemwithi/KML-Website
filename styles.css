@@ -12,9 +12,13 @@ body {
     background-color: #f1f1f1;
     padding: 10px 20px;
 }
-
+.header-right{
+    display: flex;
+gap: 20px;
+}
 .header .imgcontainer {
-    margin-right: 10px;
+    max-width: 100px;
+    height: auto;
 }
 
 .header img {
@@ -53,7 +57,17 @@ body {
 @media screen and (max-width: 500px) {
     .header {
         flex-direction: column;
-        align-items: flex-start;
+        align-items:center;
+        flex-wrap: wrap;
+        justify-content: center;
+        font-size: 14px; /*Adjust text for smaller screens */
+    }
+    .header-right{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .header-right{
+        font-size: 14px; /*Adjust text for smaller screens */
     }
     .header a {
         display: block;
