@@ -1,33 +1,14 @@
-/* styles.css */
-
-body {
-    margin: 0;
-    padding: 0;
-}
-
+/* Make the header responsive */
 .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     background-color: #f1f1f1;
     padding: 10px 20px;
-}
-.header-right{
-    display: flex;
-gap: 20px;
-}
-.header .imgcontainer {
-    max-width: 100px;
-    height: auto;
+    position: relative; /* Added for positioning mobile menu toggle */
 }
 
-.header img {
-    width: 100px;
-    height: auto;
-    object-fit: contain;
-    /* Optional: Adjust positioning if needed */
-}
-
+/* Hide the links on small screens and show them via hamburger */
 .header a {
     color: green;
     text-align: center;
@@ -37,350 +18,54 @@ gap: 20px;
     line-height: 25px;
     border-radius: 4px;
     margin-right: 5px;
+    display: inline-block;
 }
 
-.header a.logo {
-    font-size: 25px;
-    font-weight: bolder;
-}
-
-.header a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-.header a.active {
-    background-color: green;
-    color: white;
+.header .menu {
+    display: flex;
 }
 
 @media screen and (max-width: 500px) {
     .header {
         flex-direction: column;
-        align-items:center;
-        flex-wrap: wrap;
-        justify-content: center;
-        font-size: 14px; /*Adjust text for smaller screens */
+        align-items: center;
     }
-    .header-right{
-        flex-wrap: wrap;
-        justify-content: center;
+    
+    .header .menu {
+        display: none;
+        width: 100%;
+        flex-direction: column;
     }
-    .header-right{
-        font-size: 14px; /*Adjust text for smaller screens */
+    
+    .header .menu.active {
+        display: flex;
     }
+
+    /* Make links block display in small screens */
     .header a {
         display: block;
         text-align: left;
         margin: 5px 0;
     }
+
+    .hamburger {
+        display: block;
+        background-color: green;
+        padding: 10px;
+        cursor: pointer;
+    }
 }
 
-.slider {
-    position: relative;
-    width: 100%;
-    /* Adjust as needed */
-    margin: auto;
-    overflow: hidden;
+/* Add hamburger icon for mobile screens */
+.hamburger {
+    display: none;
 }
 
-.slides {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
+.hamburger div {
+    background-color: #333;
+    height: 3px;
+    width: 25px;
+    margin: 5px 0;
 }
 
-.slide {
-    min-width: 100%;
-    box-sizing: border-box;
-}
-
-.slide img {
-    width: 100%;
-    display: block;
-}
-
-.slider button {
-    position: absolute;
-    top: 50%;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    transform: translateY(-50%);
-    z-index: 100;
-}
-
-.prev {
-    left: 10px;
-}
-
-.next {
-    right: 10px;
-}
-
-.navigation-dots {
-    text-align: center;
-    padding: 10px 0;
-}
-
-.dot {
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    margin: 0 5px;
-    background-color: #bbb;
-    border-radius: 50%;
-    cursor: pointer;
-}
-
-.dot.active {
-    background-color: #717171;
-}
-
-h1,
-h2 {
-    font-weight: bold;
-    text-align: center;
-}
-
-.footer {
-    color: green;
-    padding: 20px;
-    background-color: black;
-}
-
-.footer-content {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.footer-content form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: green;
-}
-
-.footer-content input {
-    padding: 10px;
-    margin-right: 10px;
-    border: none;
-    border-radius: 5px;
-}
-
-.footer-content button {
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: darkorange;
-    color: green;
-    cursor: pointer;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    color: green;
-}
-
-.footer-links div {
-    margin-bottom: 20px;
-}
-
-.footer-links h5 {
-    margin-bottom: 10px;
-}
-
-.footer-links ul {
-    list-style: none;
-    padding: 0;
-}
-
-.footer-links ul li {
-    margin-bottom: 10px;
-}
-
-.footer-links ul li a {
-    text-decoration: none;
-    color: olive;
-}
-
-.hero {
-    background: url('hero-image.jpg') no-repeat center center/cover;
-    color: #fff;
-    text-align: center;
-    padding: 100px 20px;
-}
-
-.hero-text {
-    background-color: rgba(0, 0, 0, 0.5);
-    display: inline-block;
-    padding: 20px;
-}
-
-.hero-text h2 {
-    margin: 0;
-}
-
-.hero-text .shop-now {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 20px;
-    color: #fff;
-    background-color: #007BFF;
-    text-decoration: none;
-    border-radius: 4px;
-}
-
-.testimonials,
-.cta-buttons,
-footer {
-    padding: 20px;
-    text-align: center;
-    background-color: #fff;
-    margin: 20px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.testimonials h2,
-.cta-buttons h2,
-footer p {
-    margin: 0;
-}
-
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-
-.card {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    text-align: center;
-}
-
-.card img {
-    width: 100%;
-    height: auto;
-}
-
-.card h3 {
-    font-size: 1.2em;
-    margin: 15px 0;
-}
-
-.card p {
-    padding: 0 20px;
-    color: #666;
-}
-
-.testimonials blockquote {
-    font-style: italic;
-    margin: 20px 0;
-    color: #666;
-}
-
-.cta-buttons div {
-    display: inline-block;
-    margin: 10px;
-}
-
-body {
-    margin: 0;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-color: whitesmoke;
-}
-
-.contact {
-    display: flex;
-    padding: 50px;
-}
-
-.contact .image {
-    flex: 1;
-}
-
-.contact .image img {
-    width: 100%;
-    height: auto;
-}
-
-.contact .form-container {
-    flex: 1;
-    padding: 20px;
-}
-
-.contact h1 {
-    font-size: 36px;
-    margin-bottom: 20px;
-}
-
-.contact p {
-    margin-bottom: 20px;
-}
-
-.contact form {
-    display: flex;
-    flex-direction: column;
-    color: green;
-}
-
-.contact form label {
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.contact form input,
-.contact form textarea {
-    margin-bottom: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
-}
-
-.contact form button {
-    padding: 10px;
-    border: none;
-    background-color: green;
-    color: #fff;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.column2 {
-    display: flex;
-    flex-direction: column;
-    flex-basis: 100%;
-    color: white;
-}
-
-.row2:after {
-    content: "";
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-}
-
-.image-row {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-}
-
-.column {
-    flex: 1;
-    padding: 10px;
-}
-
-.column img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-}
+/* Mobile menu active class - toggle this when hamburger clicked */
